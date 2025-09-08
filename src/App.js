@@ -1,20 +1,29 @@
 
 import {Route, Switch} from "react-router-dom"
-
 import Home from "./screens/Home/Home"
-
+import Peliculas from "./screens/Peliculas/Peliculas"
+import Series from "./screens/Series/Series"
+import Detalle from "./screens/Detalle/Detalle"
+import Favoritos from "./screens/Favoritos/Favoritos"
+import Busqueda from "./screens/Busqueda/Busqueda"
+import NotFound from "./screens/NotFound/NotFound"
+import Header from "./components/Header/Header"
+import Footer from "./components/Footer/Footer"
 
 function App() {
   return (
-    <Switch>
-      <Route path="/" exact={true} component={Home} />
-      <Route path="/peliculas"  component={Peliculas} />
-      <Route path="/detalle/id/:id"  component={Detalle}></Route>
-      <Route path="/favoritos"  component={Favoritos}></Route>
-      <Route path="/busqueda"  component={Busqueda}></Route>
-      <Route path=""  component={NotFound}></Route>
-    </Switch>
-    <div className="">
+    <div>
+      <Header />
+      <Switch>
+        <Route path="/" exact={true} component={Home} />
+        <Route path="/peliculas" component={Peliculas} />
+        <Route path="/series" component={Series} />
+        <Route path="/detalle/id/:id" component={Detalle} />
+        <Route path="/favoritos" component={Favoritos} />
+        <Route path="/busqueda" component={Busqueda} />
+        <Route component={NotFound} />
+      </Switch>
+      <Footer />
     </div>
   );
 }

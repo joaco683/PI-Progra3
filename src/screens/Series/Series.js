@@ -1,14 +1,13 @@
 import React from 'react';
 
-function Detalle() {
+function Series() {
   return (
     <div>
-      <h1>Detalle</h1>
+      <h1>Series</h1>
     </div>
   );
 }
 
-export default Detalle;
-
+export default Series;
 
 
