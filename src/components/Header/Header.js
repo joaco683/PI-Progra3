@@ -1,26 +1,32 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import "./Header.css"
+
+
 
 function Header() {
   return (
     <header>
-      <div className="container">
-        <h1>
-          Watchly
-        </h1>
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/peliculas">Películas</Link></li>
-            <li><Link to="/series">Series</Link></li>
-            <li><Link to="/favoritos">Favoritos</Link></li>
-          </ul>
-        </nav>
-      </div>
+      <nav className="navbar">
+        <div className="nav-left">
+          <Link to="/" className="logo-link">
+            <img 
+              src="https://static.vecteezy.com/system/resources/thumbnails/012/657/549/small/illustration-negative-film-reel-roll-tapes-for-movie-cinema-video-logo-vector.jpg" 
+              alt="Watchly logo" 
+              className="logo"
+            />
+            <h1 className="brand-name">Watchly</h1>
+          </Link>
+        </div>
+        <ul className="nav-links">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/peliculas">Películas</Link></li>
+          <li><Link to="/series">Series</Link></li>
+          <li><Link to="/favoritos">Favoritos</Link></li>
+        </ul>
+      </nav>
     </header>
   )
 }
 
 export default Header
-
-
