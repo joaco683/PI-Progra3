@@ -6,7 +6,7 @@ function Header() {
     <header>
       <div className="container">
         <h1>
-          UdeSA Movies
+          Watchly
         </h1>
         <nav>
           <ul>

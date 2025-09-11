@@ -1,9 +1,10 @@
 import React from 'react';
+import Pagina from '../../components/Pagina/Pagina';
 
 function Home() {
   return (
     <div>
-      <h1>Home</h1>
+      <Pagina />
     </div>
   );
 }

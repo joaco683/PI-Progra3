@@ -21,8 +21,7 @@ function App() {
         <Route path="/detalle/id/:id" component={Detalle} />
         <Route path="/favoritos" component={Favoritos} />
         <Route path="/busqueda" component={Busqueda} />
-        
-        <Route path="*" element={<NotFound />} />
+        <Route component={NotFound} />
       </Switch>
       <Footer />
     </div>
