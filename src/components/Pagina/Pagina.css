@@ -42,7 +42,6 @@
   margin-bottom: 8px;
 }
 
-/* Texto */
 .card-text {
   font-size: 13px;
   color: #555;
@@ -51,7 +50,6 @@
   overflow: hidden;
 }
 
-/* Botón */
 .btn {
   padding: 8px 12px;
   background-color: #007bff;
