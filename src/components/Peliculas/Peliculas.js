@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import "./Pagina.css"
+import "./Peliculas.css"
 
-class Pagina extends Component {
+class Peliculas extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,18 +18,6 @@ class Pagina extends Component {
 
     }
 
-    // Evita que el form recargue la página
-  evitarSubmit = (event) => {
-    event.preventDefault();
-  };
-
-  // Actualiza el estado con lo que escribe el usuario
-  controlarCambios = (event) => {
-    this.setState({ textoFiltro: event.target.value });
-  };
-
-
-   
 
     render() {
 
@@ -40,19 +28,7 @@ class Pagina extends Component {
 
 
         return (
-            <> 
-            
-        <form onSubmit={this.evitarSubmit}>
-          <input
-            type="text"
-            name="filtro"
-            placeholder="Buscar pelicula..."
-            value={this.state.textoFiltro}
-            onChange={this.controlarCambios}
-          />
-          <button type="submit">Buscar</button>
-
-        </form>
+    
             
             <section className="row cards" id="movies">
             {peliculasFiltradas.map(pelicula => (
@@ -67,9 +43,8 @@ class Pagina extends Component {
                 </article>
             ))}
         </section>
-            </>
         );
     }
 }
 
-export default Pagina;
+export default Peliculas;

@@ -1,11 +1,12 @@
 import React from 'react';
+import Peliculas from '../../components/Peliculas/Peliculas';
 
-function Peliculas() {
+function Pelicula() {
   return (
     <div>
-      <h1>Películas</h1>
+      <Peliculas  />
     </div>
   );
 }
 
-export default Peliculas;
+export default Pelicula;
