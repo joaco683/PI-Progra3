@@ -12,7 +12,7 @@
 
 .card-img-top {
   width: 100%;
-  height: 300px;
+  height: 600px;
   object-fit: cover;
 }
 
@@ -28,11 +28,13 @@
   margin-bottom: 8px;
 }
 
+/* Description should only take exact text height */
 .card-text {
   font-size: 13px;
   color: #555;
-  margin: 10px 0;
-  height: 60px;
+  margin: 8px 0 12px 0;
+  height: auto;           /* no fixed height */
+  max-height: none;       /* allow full text */
 }
 
 .btn {

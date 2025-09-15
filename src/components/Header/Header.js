@@ -20,8 +20,8 @@ function Header() {
         </div>
         <ul className="nav-links">
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/peliculas">Películas</Link></li>
-          <li><Link to="/series">Series</Link></li>
+          <li><Link to="/peliculas">Películas populares</Link></li>
+          <li><Link to="/Cartelera">Peliculas en cartelera</Link></li>
           <li><Link to="/favoritos">Favoritos</Link></li>
         </ul>
       </nav>

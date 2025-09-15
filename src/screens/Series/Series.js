@@ -1,12 +1,12 @@
-import React from 'react';
-import Series from '../../components/Series/Series';
+// import React from 'react';
+// import Series from '../../components/Series/Series';
 
-function Serie() {
-  return (
-    <div>
-      <Series  />
-    </div>
-  );
-}
+// function Serie() {
+//   return (
+//     <div>
+//       <Series  />
+//     </div>
+//   );
+// }
 
-export default Serie;
+// export default Serie;
