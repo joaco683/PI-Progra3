@@ -5,8 +5,7 @@ class Cartelera extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            peliculas: [],
-            mostrarContenidoId: null
+            peliculas: []
         };
     }
 
@@ -17,17 +16,8 @@ class Cartelera extends Component {
             .catch(error => console.log(error));
     }
 
-    ocultar = (peliculaId) => {
-        const actual = this.state.mostrarContenidoId;
-        if (actual === peliculaId) {
-            this.setState({ mostrarContenidoId: null });
-        } else {
-            this.setState({ mostrarContenidoId: peliculaId });
-        }
-    };
-
     render() {
-        const { peliculas, mostrarContenidoId } = this.state;
+        const { peliculas } = this.state;
         return (
             <section className="row cards">
                 {peliculas.map((pelicula, i) => {
@@ -36,8 +26,6 @@ class Cartelera extends Component {
                     <Card
                         key={pelicula.id}
                         pelicula={pelicula}
-                        mostrarDescripcion={mostrarContenidoId === pelicula.id}
-                        onOcultar={() => this.ocultar(pelicula.id)}
                     />
                 )
             }

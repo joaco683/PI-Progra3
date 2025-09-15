@@ -1,7 +1,7 @@
 import React from 'react';
 import Populares from '../Populares/Populares';
 import Cartelera from '../Cartelera/Cartelera';
-import "./Home.css"
+import"./Home.css"
 
 function Pagina() {
     return (
