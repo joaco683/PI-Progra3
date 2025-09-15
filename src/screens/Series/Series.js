@@ -1,13 +1,12 @@
 import React from 'react';
+import Series from '../../components/Series/Series';
 
-function Series() {
+function Serie() {
   return (
     <div>
-      <h1>Series</h1>
+      <Series  />
     </div>
   );
 }
 
-export default Series;
-
-
+export default Serie;

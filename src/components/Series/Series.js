@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import "./Peliculas.css"
+import "./Series.css"
 import Filtro from '../Filtro/Filtro'
 
-class Peliculas extends Component {
+class Series extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +12,7 @@ class Peliculas extends Component {
         };
     }
     componentDidMount() {
-        fetch('https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1&api_key=6fc501a0ec0c8dd824b20948acf38e57')
+        fetch('https://api.themoviedb.org/3/tv/popular?language=es-ES&page=1&api_key=6fc501a0ec0c8dd824b20948acf38e57')
             .then(response => response.json())
             .then(data => this.setState({ peliculas: data.results  }))
             .catch(error => console.log(error));
@@ -41,8 +41,10 @@ class Peliculas extends Component {
     render() {
 
         const { peliculas, textoFiltro, mostrarContenidoId } = this.state;
-         const peliculasFiltradas = peliculas.filter(pelicula =>
-        pelicula.title.toLowerCase().includes(textoFiltro.toLowerCase()))
+        const peliculasFiltradas = peliculas.filter(pelicula => {
+            const nombre = pelicula && (pelicula.name || pelicula.title || "");
+            return nombre.toLowerCase().includes((textoFiltro || "").toLowerCase());
+        });
 
 
 
@@ -59,9 +61,9 @@ class Peliculas extends Component {
             <section className="row cards" id="movies">
             {peliculasFiltradas.map(pelicula => (
                 <article className="single-card-movie" key={pelicula.id}>
-                    <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} className="card-img-top" alt={pelicula.title} />
+                    <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} className="card-img-top" alt={pelicula.name || pelicula.title} />
                     <div className="cardBody">
-                        <h5 className="card-title">{pelicula.title}</h5>
+                        <h5 className="card-title">{pelicula.name || pelicula.title}</h5>
                         <button className='btn' onClick={() => this.ocultar(pelicula.id)}>
                             {mostrarContenidoId === pelicula.id ? 'Ocultar descripción' : 'Ver descripción'}
                         </button>
@@ -76,4 +78,4 @@ class Peliculas extends Component {
     }
 }
 
-export default Peliculas;
+export default Series;

@@ -1,4 +1,4 @@
-/* la tarjeta */
+
 .single-card-movie {
   background: #fff;
   border-radius: 8px;
@@ -12,7 +12,7 @@
 
 .card-img-top {
   width: 100%;
-  height: 330px;
+  height: 600px;
   object-fit: cover;
 }
 
@@ -50,7 +50,7 @@
   background-color: #0056b3;
 }
 
-/* el responsive específico de la tarjeta */
+
 @media (max-width: 768px) {
   .single-card-movie {
     width: 45%;
@@ -60,7 +60,7 @@
   }
 }
 
-/* Celulares */
+
 @media (max-width: 480px) {
   .single-card-movie {
     width: 90%;
