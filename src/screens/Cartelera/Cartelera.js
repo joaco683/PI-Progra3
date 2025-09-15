@@ -1,10 +1,10 @@
 import React from 'react';
-import Cartelera from '../../components/Cartelera/Cartelera';
+import PeliculasCartelera from '../../components/PeliculasCartelera/PeliculasCartelera';
 
 function Carteleras() {
   return (
     <div>
-      <Cartelera  />
+      <PeliculasCartelera  />
     </div>
   );
 }
