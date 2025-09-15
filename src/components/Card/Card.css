@@ -1,18 +1,8 @@
-/* Contenedor principal */
-#movies {
-  display: flex;
-  flex-wrap: wrap;     
-  justify-content: center;
-  gap: 20px;           
-  padding: 20px;
-  background-color: #f4f4f4;
-}
-
 /* la tarjeta */
 .single-card-movie {
   background: #fff;
   border-radius: 8px;
-  width: 18%;       
+  width: calc(25% - 20px);
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   display: flex;
@@ -20,13 +10,11 @@
   margin: 10px;
 }
 
-
 .card-img-top {
   width: 100%;
   height: 330px;
-  object-fit: cover; 
+  object-fit: cover;
 }
-
 
 .cardBody {
   padding: 10px;
@@ -34,7 +22,6 @@
   flex-direction: column;
   height: 100%;
 }
-
 
 .card-title {
   font-size: 16px;
@@ -63,11 +50,10 @@
   background-color: #0056b3;
 }
 
-
-/* el responsive */
+/* el responsive específico de la tarjeta */
 @media (max-width: 768px) {
   .single-card-movie {
-    width: 45%;   
+    width: 45%;
   }
   .card-img-top {
     height: 280px;
@@ -77,9 +63,11 @@
 /* Celulares */
 @media (max-width: 480px) {
   .single-card-movie {
-    width: 90%;   
+    width: 90%;
   }
   .card-img-top {
     height: 220px;
   }
 }
+
+

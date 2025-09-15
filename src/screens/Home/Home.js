@@ -1,5 +1,5 @@
 import React from 'react';
-import Pagina from '../../components/Pagina/Pagina';
+import Pagina from '../../components/Home/Home';
 
 function Home() {
   return (
