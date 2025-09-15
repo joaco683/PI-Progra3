@@ -20,7 +20,7 @@ function App() {
         <Route path="/series" component={Series} />
         <Route path="/detalle/id/:id" component={Detalle} />
         <Route path="/favoritos" component={Favoritos} />
-        <Route path="/busqueda" component={Busqueda} />
+        <Route path="/busqueda/:busqueda" component={Busqueda} />
         <Route component={NotFound} />
       </Switch>
       <Footer />

@@ -7,6 +7,7 @@ class Pagina extends Component {
         this.state = {
             peliculas: [],
             textoFiltro: "",
+            mostrarContenido:false
         };
     }
     componentDidMount() {
@@ -23,17 +24,19 @@ class Pagina extends Component {
     event.preventDefault();
   };
 
-  // Actualiza el estado con lo que escribe el usuario
   controlarCambios = (event) => {
     this.setState({ textoFiltro: event.target.value });
   };
 
+  ocultar = ()  => {
+        this.setState({ mostrarContenido: !this.state.mostrarContenido });
+    };
 
    
 
     render() {
 
-        const { peliculas, textoFiltro } = this.state;
+        const { peliculas, textoFiltro, mostrarContenido } = this.state;
          const peliculasFiltradas = peliculas.filter(pelicula =>
         pelicula.title.toLowerCase().includes(textoFiltro.toLowerCase()))
 
@@ -60,8 +63,11 @@ class Pagina extends Component {
                     <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} className="card-img-top" alt={pelicula.title} />
                     <div className="cardBody">
                         <h5 className="card-title">{pelicula.title}</h5>
-                        <button className='btn' >Ver descripcion</button>
-                        <p className="card-text" >{pelicula.overview}</p>
+                         <button className="btn" onClick={this.ocultar}>
+                        {mostrarContenido ? "Ocultar descripción" : "Ver descripción"}
+                        </button>
+                         
+                         {mostrarContenido ? ( <p className="card-text">{pelicula.overview}</p> ) : null}
                         <a href={`/detalle/id/${pelicula.id}`} className="btn btn-primary">Ver más</a>
                     </div>
                 </article>
