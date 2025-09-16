@@ -1,16 +1,58 @@
-import React from 'react';
-import './PeliculasPopulares.css'
-import Populares from '../Populares/Populares'
-import Filtro from '../Filtro/Filtro'
+import React, { Component } from 'react';
+import Populares from '../Populares/Populares';
+import Filtro from '../Filtro/Filtro';
 
-function PeliculasPopulares() {
-    return (
-        <>
-            <Filtro />
-            <h2>Películas populares</h2>
-            <Populares />
-        </>
+class PeliculasPopulares extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      peliculas: [],           
+      peliculasFiltradas: [],  
+      filtro: ""               
+    };
+  }
+
+  componentDidMount() {
+    fetch('https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1&api_key=6fc501a0ec0c8dd824b20948acf38e57')
+      .then(response => response.json())
+      .then(data => this.setState({
+        peliculas: data.results,
+        peliculasFiltradas: data.results
+      }))
+      .catch(error => console.log(error));
+  }
+
+  
+  manejarSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  
+  manejarCambio = (event) => {
+    const texto = event.target.value;
+    const filtradas = this.state.peliculas.filter((peli) =>
+      peli.title.toLowerCase().includes(texto.toLowerCase())
     );
+    this.setState({
+      filtro: texto,
+      peliculasFiltradas: filtradas
+    });
+  };
+
+  render() {
+    return (
+      <>
+        <Filtro
+          value={this.state.filtro}
+          manejarCambio={this.manejarCambio}
+          manejarSubmit={this.manejarSubmit}
+        />
+
+        <h2>Películas populares</h2>
+        <Populares peliculas={this.state.peliculasFiltradas} />
+      </>
+    );
+  }
 }
 
 export default PeliculasPopulares;

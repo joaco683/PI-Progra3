@@ -1,16 +1,17 @@
 import React from 'react'
+import "./Filtro.css"
 
-function Filtro({ value, onChange, onSubmit }) {
+function Filtro({ value, manejarCambio, manejarSubmit }) {
     return (
-        <form onSubmit={onSubmit}>
+        <form className="filtro-form" onSubmit={manejarSubmit}>
             <input
                 type="text"
                 name="filtro"
                 placeholder="Buscar pelicula..."
                 value={value}
-                onChange={onChange}
+                onChange={manejarCambio}
+                className="filtro-input"
             />
-            <button type="submit">Buscar</button>
         </form>
     )
 }
