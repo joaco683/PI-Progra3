@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { Component } from "react";
 
-function Detalle() {
-  return (
-    <div>
-      <h1>Detalle</h1>
-    </div>
-  );
+class Detalle extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pelicula: null
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Detalle</h1>
+      </div>
+    );
+  }
 }
 
 export default Detalle;
