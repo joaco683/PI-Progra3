@@ -1,0 +1,28 @@
+.detalle-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  .detalle-container img {
+    width: 300px;       
+    border-radius: 8px; 
+  }
+  
+  .detalle-info {
+    flex: 1;
+  }
+  
+  .detalle-info h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .detalle-info p {
+    margin: 5px 0;
+    line-height: 1.5;
+  }
+  

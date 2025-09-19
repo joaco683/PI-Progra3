@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./DetallePelicula.css";
 
 class Detalle extends Component {
   constructor(props) {
@@ -26,26 +27,30 @@ class Detalle extends Component {
     }
 
     return (
-      <div>
-        <h1>{this.state.pelicula.title}</h1>
-        <img
-          src={`https://image.tmdb.org/t/p/w500${this.state.pelicula.poster_path}`}
-          alt={this.state.pelicula.title}
-        />
-        <p><strong>Fecha de estreno:</strong> {this.state.pelicula.release_date}</p>
-        <p><strong>Rating:</strong> {this.state.pelicula.vote_average}</p>
-        <p><strong>Duración:</strong> {this.state.pelicula.runtime} minutos</p>
-        <p><strong>Sinopsis:</strong> {this.state.pelicula.overview}</p>
-        <p>
-          <strong>Géneros:</strong>{" "}
-          {this.state.pelicula.genres
-            ? this.state.pelicula.genres.map((g, idx) => (
-                <span key={idx}>{g.name} </span>
-              ))
-            : "No disponible"}
-        </p>
-      </div>
-    );
+        <div className="detalle-container">
+          <img
+            src={`https://image.tmdb.org/t/p/w500${this.state.pelicula.poster_path}`}
+            alt={this.state.pelicula.title}
+          />
+          <div className="detalle-info">
+            <h1>{this.state.pelicula.title}</h1>
+            <p><strong>Fecha de estreno:</strong> {this.state.pelicula.release_date}</p>
+            <p><strong>Rating:</strong> {this.state.pelicula.vote_average}</p>
+            <p><strong>Duración:</strong> {this.state.pelicula.runtime} minutos</p>
+            <p><strong>Sinopsis:</strong> {this.state.pelicula.overview}</p>
+            <p>
+              <strong>Géneros:</strong>{" "}
+              {this.state.pelicula.genres
+                ? this.state.pelicula.genres.map((g, idx) => (
+                    <span key={idx}>{g.name} </span>
+                  ))
+                : "No disponible"}
+            </p>
+          </div>
+        </div>
+      );
+      
+
   }
 }
 
