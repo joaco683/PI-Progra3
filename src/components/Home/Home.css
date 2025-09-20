@@ -1,28 +1,80 @@
-/* Contenedor principal */
-#movies {
+
+.movies {
   display: flex;
-  flex-wrap: wrap;     
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;           
+  gap: 20px;
   padding: 20px;
   background-color: #f4f4f4;
 }
 
-/* contenedor reutilizable para listas de tarjetas */
+
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
+
+
 h2 {
   width: 100%;
   text-align: center;
   margin: 40px 0 20px;
   font-size: 26px;
   font-weight: 700;
-  color: #222; 
+  color: #222;
   padding-bottom: 10px;
+}
 
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+form input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+form button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+
+.resultados {
+  margin: 20px auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.resultados ul {
+  list-style: none;
+  padding: 0;
+}
+
+.resultados li {
+  margin: 5px 0;
+  padding: 8px;
+  background-color: #eee;
+  border-radius: 4px;
 }
 
