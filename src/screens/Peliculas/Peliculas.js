@@ -1,10 +1,10 @@
 import React from 'react';
-import Peliculas from '../../components/PeliculasPopulares/PeliculasPopulares';
+import PeliculasPopulares from '../../components/PeliculasPopulares/PeliculasPopulares';
 
 function Pelicula() {
   return (
     <div>
-      <Peliculas  />
+      <PeliculasPopulares  />
     </div>
   );
 }

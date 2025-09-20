@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 import Populares from "../Populares/Populares";
 import Cartelera from "../Cartelera/Cartelera";
 import Buscador from "../Buscador/Buscador";
 import "../Home/Home.css";
+import reactRouterDom from "react-router-dom";
 
 class Pagina extends Component {
   constructor(props) {
@@ -36,8 +38,14 @@ class Pagina extends Component {
         <h2>Películas populares</h2>
         <Populares peliculas={this.state.populares} />
 
+        <div className="contenedor-boton">
+        <Link to="/populares" className="vertodas">Ver todas </Link></div>
+
         <h2>Cartelera</h2>
         <Cartelera peliculas={this.state.cartelera} />
+        <div className="contenedor-boton">
+        <Link to="/cartelera" className="vertodas">Ver todas </Link></div>
+
       </div>
     );
   }

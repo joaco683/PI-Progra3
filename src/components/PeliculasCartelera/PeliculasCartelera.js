@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Cartelera from "../Cartelera/Cartelera";
 import Buscador from "../Buscador/Buscador";
+import Filtro from "../Filtro/Filtro";
 
 class PeliculasCartelera extends Component {
   constructor(props) {
@@ -24,6 +25,12 @@ class PeliculasCartelera extends Component {
       .catch(err => console.error(err));
   }
 
+   manejarSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  
+
   manejarCambio = (event) => {
     const texto = event.target.value.toLowerCase();
     const filtradas = this.state.peliculas.filter(peli =>
@@ -35,11 +42,17 @@ class PeliculasCartelera extends Component {
       peliculasFiltradas: filtradas
     });
   };
+   manejarSubmit = (event) => {
+    event.preventDefault();
+  };
 
   render() {
     return (
       <>
-        <Buscador />
+        <Filtro
+        value={this.state.filtro}
+        manejarCambio={this.manejarCambio}
+        manejarSubmit={this.manejarSubmit} />
         <h2>Películas en cartelera</h2>
         <Cartelera peliculas={this.state.peliculasFiltradas} />
       </>

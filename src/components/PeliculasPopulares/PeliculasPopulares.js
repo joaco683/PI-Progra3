@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Populares from '../Populares/Populares';
 import Buscador from '../Buscador/Buscador';
+import Filtro from '../Filtro/Filtro';
 
 class PeliculasPopulares extends Component {
   constructor(props) {
@@ -42,7 +43,10 @@ class PeliculasPopulares extends Component {
   render() {
     return (
       <>
-        <Buscador />
+        <Filtro 
+        value={this.state.filtro}
+        manejarCambio={this.manejarCambio}
+        manejarSubmit={this.manejarSubmit} />
 
         <h2>Películas populares</h2>
         <Populares peliculas={this.state.peliculasFiltradas} />
