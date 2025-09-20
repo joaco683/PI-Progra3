@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Cartelera from "../Cartelera/Cartelera";
-import Buscador from "../Buscador/Buscador";
 import Filtro from "../Filtro/Filtro";
+import "../PeliculasCartelera/PeliculasCartelera.css"
 
 class PeliculasCartelera extends Component {
   constructor(props) {
@@ -9,7 +9,8 @@ class PeliculasCartelera extends Component {
     this.state = {
       peliculas: [],
       peliculasFiltradas: [],
-      filtro: ""
+      filtro: "",
+      peliculasMostradas: 8
     };
   }
 
@@ -39,14 +40,29 @@ class PeliculasCartelera extends Component {
 
     this.setState({
       filtro: texto,
-      peliculasFiltradas: filtradas
+      peliculasFiltradas: filtradas,
+      peliculasMostradas: 8
     });
   };
-   manejarSubmit = (event) => {
-    event.preventDefault();
+
+  cargarMas = () => {
+    this.setState({
+      peliculasMostradas: this.state.peliculasMostradas + 8
+    });
   };
 
   render() {
+    const { peliculasFiltradas, peliculasMostradas } = this.state;
+
+    let botonCargarMas = null;
+    if (peliculasFiltradas.length > peliculasMostradas) {
+      botonCargarMas = (
+        <div className='cargarMas'>
+          <button onClick={this.cargarMas} className="btn btn-primary"> Cargar más </button>
+        </div>
+      );
+    }
+
     return (
       <>
         <Filtro
@@ -54,7 +70,12 @@ class PeliculasCartelera extends Component {
         manejarCambio={this.manejarCambio}
         manejarSubmit={this.manejarSubmit} />
         <h2>Películas en cartelera</h2>
-        <Cartelera peliculas={this.state.peliculasFiltradas} />
+        <Cartelera 
+          peliculas={peliculasFiltradas} 
+          mostrar={peliculasMostradas}
+        />
+        <div>{botonCargarMas} </div>
+        
       </>
     );
   }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Populares from '../Populares/Populares';
-import Buscador from '../Buscador/Buscador';
 import Filtro from '../Filtro/Filtro';
+import "../PeliculasPopulares/PeliculasPopulares.css"
+
 
 class PeliculasPopulares extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class PeliculasPopulares extends Component {
     this.state = {
       peliculas: [],
       peliculasFiltradas: [],
-      filtro: ""
+      filtro: "",
+      peliculasMostradas: 8
     };
   }
 
@@ -36,11 +38,33 @@ class PeliculasPopulares extends Component {
     );
     this.setState({
       filtro: texto,
-      peliculasFiltradas: filtradas
+      peliculasFiltradas: filtradas,
+      peliculasMostradas: 8
     });
   };
 
+  cargarMas = () => {
+    this.setState({
+      peliculasMostradas: this.state.peliculasMostradas + 8
+    });
+  };
+
+  
+
   render() {
+    const { peliculasFiltradas, peliculasMostradas } = this.state;
+
+  let botonCargarMas = null;
+  if (peliculasFiltradas.length > peliculasMostradas) {
+    botonCargarMas = (
+      <div className='cargarMas'>
+        <button onClick={this.cargarMas} className="btn btn-primary"> Cargar más </button>
+      </div>
+    );
+  }
+
+
+
     return (
       <>
         <Filtro 
@@ -49,7 +73,12 @@ class PeliculasPopulares extends Component {
         manejarSubmit={this.manejarSubmit} />
 
         <h2>Películas populares</h2>
-        <Populares peliculas={this.state.peliculasFiltradas} />
+        <Populares 
+          peliculas={peliculasFiltradas} 
+          mostrar={peliculasMostradas}
+        />
+      
+      <div>{botonCargarMas}</div>
       </>
     );
   }

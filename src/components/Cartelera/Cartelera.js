@@ -3,7 +3,7 @@ import Card from '../Card/Card';
 
 class Cartelera extends Component {
   render() {
-    const { peliculas } = this.props;
+    const { peliculas, mostrar = 8 } = this.props;
 
     if (peliculas === undefined) {
       return <p>No hay películas en cartelera</p>;
@@ -17,7 +17,7 @@ class Cartelera extends Component {
     return (
       <section className="row cards">
         {peliculas.map((pelicula, i) => {
-          if (i < 8) {
+          if (i < mostrar) {
             return (
               <Card
                 key={pelicula.id}
