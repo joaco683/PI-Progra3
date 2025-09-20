@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Populares from '../Populares/Populares';
-import Filtro from '../Filtro/Filtro';
+import Buscador from '../Buscador/Buscador';
 
 class PeliculasPopulares extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      peliculas: [],           
-      peliculasFiltradas: [],  
-      filtro: ""               
+      peliculas: [],
+      peliculasFiltradas: [],
+      filtro: ""
     };
   }
 
@@ -22,12 +22,12 @@ class PeliculasPopulares extends Component {
       .catch(error => console.log(error));
   }
 
-  
+
   manejarSubmit = (event) => {
     event.preventDefault();
   };
 
-  
+
   manejarCambio = (event) => {
     const texto = event.target.value;
     const filtradas = this.state.peliculas.filter((peli) =>
@@ -42,11 +42,7 @@ class PeliculasPopulares extends Component {
   render() {
     return (
       <>
-        <Filtro
-          value={this.state.filtro}
-          manejarCambio={this.manejarCambio}
-          manejarSubmit={this.manejarSubmit}
-        />
+        <Buscador />
 
         <h2>Películas populares</h2>
         <Populares peliculas={this.state.peliculasFiltradas} />

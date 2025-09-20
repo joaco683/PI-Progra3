@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Cartelera from "../Cartelera/Cartelera";
-import Filtro from "../Filtro/Filtro";
+import Buscador from "../Buscador/Buscador";
 
 class PeliculasCartelera extends Component {
   constructor(props) {
@@ -39,10 +39,7 @@ class PeliculasCartelera extends Component {
   render() {
     return (
       <>
-        <Filtro
-          valor={this.state.filtro}
-          manejarCambio={this.manejarCambio}
-        />
+        <Buscador />
         <h2>Películas en cartelera</h2>
         <Cartelera peliculas={this.state.peliculasFiltradas} />
       </>
