@@ -1,13 +1,23 @@
 
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start; 
+  gap: 20px; 
+}
+
+
 .single-card-movie {
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 15px;
   width: 20%;
   box-sizing: border-box;
+  align-self: flex-start; 
 }
 
 .card-img-top {
@@ -16,11 +26,13 @@
   object-fit: cover;
 }
 
+
 .cardBody {
   padding: 10px;
   display: flex;
   flex-direction: column;
 }
+
 
 .card-title {
   font-size: 16px;
@@ -28,13 +40,13 @@
   margin-bottom: 8px;
 }
 
+
 .card-text {
   font-size: 13px;
   color: #555;
   margin: 10px 0 12px 0;
-  height: auto;           
-  max-height: none;       
 }
+
 
 .btn {
   padding: 8px 12px;
@@ -43,6 +55,9 @@
   text-align: center;
   border-radius: 4px;
   text-decoration: none;
+  border: none;
+  margin-top: 8px;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -59,7 +74,6 @@
   }
 }
 
-
 @media (max-width: 480px) {
   .single-card-movie {
     width: 90%;
@@ -68,5 +82,3 @@
     height: 220px;
   }
 }
-
-
