@@ -4,7 +4,7 @@ import Populares from "../Populares/Populares";
 import Cartelera from "../Cartelera/Cartelera";
 import Buscador from "../Buscador/Buscador";
 import "../Home/Home.css";
-import reactRouterDom from "react-router-dom";
+
 
 class Pagina extends Component {
   constructor(props) {
