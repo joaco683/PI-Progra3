@@ -5,7 +5,8 @@ class Detalle extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pelicula: null
+      pelicula: null,
+      isFavorite: false
     };
   }
 
@@ -16,10 +17,47 @@ class Detalle extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({ pelicula: data });
+        
+        let favoritos = []
+        let datosEnLS = localStorage.getItem('LSFavoritos');
+        if (datosEnLS !== null) {
+            favoritos = JSON.parse(datosEnLS);
+        }
+        
+        let estaEnFavoritos = favoritos.includes(data.id);
+        this.setState({ isFavorite: estaEnFavoritos });
   })
   .catch(error => console.log("Error al cargar detalle:", error));
 
 
+  }
+
+  agregarFavorite = () => {
+    const id = this.state.pelicula.id;
+    let favoritos = []
+
+    let datosEnLS = localStorage.getItem('LSFavoritos');
+    if (datosEnLS !== null) {
+        favoritos = JSON.parse(datosEnLS);
+    }
+
+    favoritos.push(id);
+    localStorage.setItem('LSFavoritos', JSON.stringify(favoritos));
+    this.setState({ isFavorite: true });
+  }
+
+  quitarFavorite = () => {
+    const id = this.state.pelicula.id;
+    let favoritos = []
+
+    let datosEnLS = localStorage.getItem('LSFavoritos');
+    if (datosEnLS !== null) {
+        favoritos = JSON.parse(datosEnLS);
+    }
+
+    let favoritosActualizados = favoritos.filter(favorito => favorito !== id);
+    localStorage.setItem('LSFavoritos', JSON.stringify(favoritosActualizados));
+    this.setState({ isFavorite: false });
   }
   render() {
     if (this.state.pelicula === null) {
@@ -46,6 +84,11 @@ class Detalle extends Component {
                   ))
                 : "No disponible"}
             </p>
+            {this.state.isFavorite ? (
+                        <button className="btn btn-primary" onClick={this.quitarFavorite}>Quitar de favoritos</button>
+                    ) : (
+                        <button className="btn btn-primary" onClick={this.agregarFavorite}>Agregar a favoritos</button>
+                    )}
           </div>
         </div>
       );
