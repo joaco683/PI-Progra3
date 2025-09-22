@@ -5,7 +5,7 @@ class Favoritos extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      personajesFavoritos: []
+      peliculasFavoritos: []
     };
   }
 
@@ -22,7 +22,7 @@ class Favoritos extends Component {
           .then(response => response.json())
           .then(data => {
             listaIDFavoritosAux.push(data);
-            this.setState({ personajesFavoritos: listaIDFavoritosAux });
+            this.setState({ peliculasFavoritos: listaIDFavoritosAux });
           })
           .catch(error => console.log(error));
         }
@@ -35,8 +35,8 @@ class Favoritos extends Component {
   }
 
   removerDeFavoritos = (id) => {
-    const restantes = this.state.personajesFavoritos.filter(p => p.id !== id);
-    this.setState({ personajesFavoritos: restantes });
+    const restantes = this.state.peliculasFavoritos.filter(p => p.id !== id);
+    this.setState({ peliculasFavoritos: restantes });
   }
 
   render() {
@@ -45,7 +45,7 @@ class Favoritos extends Component {
         <h1 className = "titulo-favoritos">Favoritos</h1>
 
         <section className="cards">
-          {this.state.personajesFavoritos.length === 0 ? (
+          {this.state.peliculasFavoritos.length === 0 ? (
             (() => {
               const datosEnLS = localStorage.getItem('LSFavoritos');
               const lista = datosEnLS ? JSON.parse(datosEnLS) : [];
@@ -56,8 +56,8 @@ class Favoritos extends Component {
               }              
             })()
           ) : (
-            this.state.personajesFavoritos.map((personaje) => (
-              <Card key={personaje.id} pelicula={personaje} onQuitar={(id) => this.removerDeFavoritos(id)}></Card>
+            this.state.peliculasFavoritos.map((pelicula) => (
+              <Card key={pelicula.id} pelicula={pelicula} onQuitar={(id) => this.removerDeFavoritos(id)}></Card>
 
             )))}
         </section>
