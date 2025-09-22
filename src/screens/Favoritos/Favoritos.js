@@ -41,7 +41,15 @@ class Favoritos extends Component {
 
         <section className="cards">
           {this.state.personajesFavoritos.length === 0 ? (
-            <p>Cargando favoritos...</p>
+            (() => {
+              const datosEnLS = localStorage.getItem('LSFavoritos');
+              const lista = datosEnLS ? JSON.parse(datosEnLS) : [];
+              return (lista && lista.length === 0) ? (
+                <p>No hay favoritos añadidos</p>
+              ) : (
+                <p>Cargando favoritos...</p>
+              );
+            })()
           ) : (
             this.state.personajesFavoritos.map((personaje) => (
               <Card key={personaje.id} pelicula={personaje} ></Card>
