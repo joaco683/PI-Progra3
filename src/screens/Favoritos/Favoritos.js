@@ -34,6 +34,11 @@ class Favoritos extends Component {
 
   }
 
+  removerDeFavoritos = (id) => {
+    const restantes = this.state.personajesFavoritos.filter(p => p.id !== id);
+    this.setState({ personajesFavoritos: restantes });
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -52,7 +57,7 @@ class Favoritos extends Component {
             })()
           ) : (
             this.state.personajesFavoritos.map((personaje) => (
-              <Card key={personaje.id} pelicula={personaje} ></Card>
+              <Card key={personaje.id} pelicula={personaje} onQuitar={(id) => this.removerDeFavoritos(id)}></Card>
 
             )))}
         </section>

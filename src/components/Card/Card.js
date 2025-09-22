@@ -50,7 +50,10 @@ class Card extends Component {
         
         let favoritosActualizados = favoritos.filter(favorito => favorito !== id);
         localStorage.setItem('LSFavoritos', JSON.stringify(favoritosActualizados));
-        this.setState({ isFavorite: false }); 
+        this.setState({ isFavorite: false });
+        if (this.props.onQuitar) {
+            this.props.onQuitar(id);
+        }
     }
 
 
