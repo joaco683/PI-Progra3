@@ -42,18 +42,18 @@ class Favoritos extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Favoritos</h1>
+        <h1 className = "titulo-favoritos">Favoritos</h1>
 
         <section className="cards">
           {this.state.personajesFavoritos.length === 0 ? (
             (() => {
               const datosEnLS = localStorage.getItem('LSFavoritos');
               const lista = datosEnLS ? JSON.parse(datosEnLS) : [];
-              return (lista && lista.length === 0) ? (
-                <p>No hay favoritos añadidos</p>
-              ) : (
-                <p>Cargando favoritos...</p>
-              );
+              if (lista.length === 0) {
+                return <p>No hay favoritos añadidos</p>;
+              } else {
+                return <p>Cargando favoritos...</p>;
+              }              
             })()
           ) : (
             this.state.personajesFavoritos.map((personaje) => (

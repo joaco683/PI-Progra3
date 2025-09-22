@@ -18,4 +18,13 @@ body {
   .main-content {
     flex: 1; 
   }
+  .titulo-favoritos {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #003366; 
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+  
   
