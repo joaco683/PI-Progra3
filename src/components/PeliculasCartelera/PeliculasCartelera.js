@@ -69,7 +69,7 @@ class PeliculasCartelera extends Component {
         value={this.state.filtro}
         manejarCambio={this.manejarCambio}
         manejarSubmit={this.manejarSubmit} />
-        <h2>Películas en cartelera</h2>
+        <h2 className="titulo-favoritos">Películas en cartelera</h2>
         <Cartelera 
           peliculas={peliculasFiltradas} 
           mostrar={peliculasMostradas}

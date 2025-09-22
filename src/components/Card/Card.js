@@ -80,9 +80,9 @@ class Card extends Component {
                     ) : null}
                     <Link to={`/detalle/id/${pelicula.id}`} className="btn btn-primary">Ver más</Link>
                     {this.state.isFavorite ? (
-                        <button className="btn btn-primary" onClick={this.quitarFavorite}>Quitar de favoritos</button>
+                        <button className=" btn-fallo" onClick={this.quitarFavorite}>Quitar de favoritos</button>
                     ) : (
-                        <button className="btn btn-primary" onClick={this.agregarFavorite}>Agregar a favoritos</button>
+                        <button className=" btn-success" onClick={this.agregarFavorite}>Agregar a favoritos</button>
                     )}
                 </div>
             </article>

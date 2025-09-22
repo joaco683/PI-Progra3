@@ -35,13 +35,13 @@ class Pagina extends Component {
       <div>
         <Buscador />
 
-        <h2>Películas populares</h2>
+        <h2 className="titulo-favoritos">Películas populares</h2>
         <Populares peliculas={this.state.populares} />
 
         <div className="contenedor-boton">
         <Link to="/populares" className="vertodas">Ver todas </Link></div>
 
-        <h2>Cartelera</h2>
+        <h2 className="titulo-favoritos">Cartelera</h2>
         <Cartelera peliculas={this.state.cartelera} />
         <div className="contenedor-boton">
         <Link to="/cartelera" className="vertodas">Ver todas </Link></div>

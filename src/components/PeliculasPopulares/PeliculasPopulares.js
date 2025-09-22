@@ -72,7 +72,7 @@ class PeliculasPopulares extends Component {
         manejarCambio={this.manejarCambio}
         manejarSubmit={this.manejarSubmit} />
 
-        <h2>Películas populares</h2>
+        <h2 className="titulo-favoritos" >Películas populares</h2>
         <Populares 
           peliculas={peliculasFiltradas} 
           mostrar={peliculasMostradas}

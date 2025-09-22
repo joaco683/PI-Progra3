@@ -32,7 +32,7 @@ class SearchResults extends Component {
   render() {
     return (
       <div>
-        <h2>Resultados de búsqueda</h2>
+        <h2 className="titulo-favoritos">Resultados de búsqueda</h2>
 
         {this.state.resultados.length > 0 ? (
           <div>

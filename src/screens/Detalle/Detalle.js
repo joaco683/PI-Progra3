@@ -1,9 +1,8 @@
 import React from "react";
 import DetallePelicula from "../../components/DetallePelicula/DetallePelicula";
 
-// Screen: solo envuelve al componente
 function Detalle(props) {
-  return <DetallePelicula {...props} />;
+  return <DetallePelicula id={props.match.params.id} />;
 }
 
 export default Detalle;

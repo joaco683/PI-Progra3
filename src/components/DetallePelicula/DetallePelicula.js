@@ -11,7 +11,7 @@ class Detalle extends Component {
   }
 
   componentDidMount() {
-    const id = this.props.match.params.id;
+    const id = this.props.id;
 
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=0fff56e4cd11a172a6a90b73b1f4c1f1&language=es-ES`)
       .then(response => response.json())
@@ -85,9 +85,9 @@ class Detalle extends Component {
                 : "No disponible"}
             </p>
             {this.state.isFavorite ? (
-                        <button className="btn btn-primary" onClick={this.quitarFavorite}>Quitar de favoritos</button>
+                        <button className="btn-fallo" onClick={this.quitarFavorite}>Quitar de favoritos</button>
                     ) : (
-                        <button className="btn btn-primary" onClick={this.agregarFavorite}>Agregar a favoritos</button>
+                        <button className="btn-success" onClick={this.agregarFavorite}>Agregar a favoritos</button>
                     )}
           </div>
         </div>

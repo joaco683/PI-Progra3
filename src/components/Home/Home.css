@@ -20,6 +20,7 @@ h2 {
   display: flex;
   justify-content: center; 
   margin: 20px 0;
+  padding-bottom: 20px;
 }
 
 .vertodas {
