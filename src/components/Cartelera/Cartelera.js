@@ -13,7 +13,7 @@ class Cartelera extends Component {
       return <p>No hay películas en cartelera</p>;
     }
 
-    // si hay películas, las mostramos
+
     return (
       <section className="row cards">
         {peliculas.map((pelicula, i) => {

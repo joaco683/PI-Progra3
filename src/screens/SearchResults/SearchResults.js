@@ -10,7 +10,7 @@ class SearchResults extends Component {
   }
 
   componentDidMount() {
-    // Obtener la query de las props
+
     const query = this.props.match.params.query;
     
     if (query) {
