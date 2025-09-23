@@ -23,7 +23,6 @@ class Buscador extends Component {
     event.preventDefault();
 
     if (this.state.query !== "") {
-      // Navegar a la página de resultados con la query como parámetro de ruta
       window.location.href = `/search/${this.state.query}`;
     }
   }
@@ -31,7 +30,7 @@ class Buscador extends Component {
   render() {
     return (
       <div>
-        {/* Formulario de búsqueda */}
+        
         <form onSubmit={(event) => this.evitarSubmit(event)} className="buscador">
           <input
             type="text"

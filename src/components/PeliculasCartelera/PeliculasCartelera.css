@@ -1,0 +1,25 @@
+
+#movies {
+    display: flex;
+    flex-wrap: wrap;     
+    justify-content: center;
+    gap: 20px;           
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+
+  .cargarMas{
+    text-align: center;
+    margin: 20px;
+  }
+  
+
+
+  @media (max-width: 768px) {
+    
+  }
+  
+
+  @media (max-width: 480px) {
+    
+  } 
